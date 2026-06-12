@@ -1,0 +1,182 @@
+[
+  {
+    "question": "What does HTML stand for?",
+    "answers": [
+      { "text": "Hyper Text Markup Language", "correct": true },
+      { "text": "Home Tool Markup Language", "correct": false },
+      { "text": "Hyperlinks and Text Markup Language", "correct": false },
+      { "text": "Hyper Tool Multi Language", "correct": false }
+    ]
+  },
+  {
+    "question": "Which language is used for styling web pages?",
+    "answers": [
+      { "text": "HTML", "correct": false },
+      { "text": "CSS", "correct": true },
+      { "text": "Python", "correct": false },
+      { "text": "Java", "correct": false }
+    ]
+  },
+  {
+    "question": "Which language is used to make web pages interactive?",
+    "answers": [
+      { "text": "CSS", "correct": false },
+      { "text": "JavaScript", "correct": true },
+      { "text": "HTML", "correct": false },
+      { "text": "SQL", "correct": false }
+    ]
+  },
+  {
+    "question": "Which HTML tag is used to create a hyperlink?",
+    "answers": [
+      { "text": "<link>", "correct": false },
+      { "text": "<a>", "correct": true },
+      { "text": "<href>", "correct": false },
+      { "text": "<url>", "correct": false }
+    ]
+  },
+  {
+    "question": "Which CSS property changes the text color?",
+    "answers": [
+      { "text": "font-color", "correct": false },
+      { "text": "text-color", "correct": false },
+      { "text": "color", "correct": true },
+      { "text": "background-color", "correct": false }
+    ]
+  },
+  {
+    "question": "What symbol is used for single-line comments in JavaScript?",
+    "answers": [
+      { "text": "//", "correct": true },
+      { "text": "/*", "correct": false },
+      { "text": "#", "correct": false },
+      { "text": "<!--", "correct": false }
+    ]
+  },
+  {
+    "question": "Which method prints output to the browser console?",
+    "answers": [
+      { "text": "console.print()", "correct": false },
+      { "text": "print()", "correct": false },
+      { "text": "console.log()", "correct": true },
+      { "text": "echo()", "correct": false }
+    ]
+  },
+  {
+    "question": "Which HTML element is used to display an image?",
+    "answers": [
+      { "text": "<image>", "correct": false },
+      { "text": "<img>", "correct": true },
+      { "text": "<picture>", "correct": false },
+      { "text": "<src>", "correct": false }
+    ]
+  },
+  {
+    "question": "Which keyword is used to declare a variable in JavaScript?",
+    "answers": [
+      { "text": "int", "correct": false },
+      { "text": "var", "correct": true },
+      { "text": "string", "correct": false },
+      { "text": "define", "correct": false }
+    ]
+  },
+  {
+    "question": "Which company originally developed JavaScript?",
+    "answers": [
+      { "text": "Microsoft", "correct": false },
+      { "text": "Google", "correct": false },
+      { "text": "Netscape", "correct": true },
+      { "text": "Apple", "correct": false }
+    ]
+  },
+  {
+    "question": "Which HTML tag creates a paragraph?",
+    "answers": [
+      { "text": "<para>", "correct": false },
+      { "text": "<paragraph>", "correct": false },
+      { "text": "<p>", "correct": true },
+      { "text": "<text>", "correct": false }
+    ]
+  },
+  {
+    "question": "Which CSS property is used to change the background color?",
+    "answers": [
+      { "text": "bgcolor", "correct": false },
+      { "text": "background-color", "correct": true },
+      { "text": "color", "correct": false },
+      { "text": "background", "correct": false }
+    ]
+  },
+  {
+    "question": "What does CSS stand for?",
+    "answers": [
+      { "text": "Creative Style Sheets", "correct": false },
+      { "text": "Computer Style Sheets", "correct": false },
+      { "text": "Cascading Style Sheets", "correct": true },
+      { "text": "Colorful Style Sheets", "correct": false }
+    ]
+  },
+  {
+    "question": "Which HTML tag is used for the largest heading?",
+    "answers": [
+      { "text": "<h6>", "correct": false },
+      { "text": "<head>", "correct": false },
+      { "text": "<h1>", "correct": true },
+      { "text": "<heading>", "correct": false }
+    ]
+  },
+  {
+    "question": "Which JavaScript operator is used for strict equality?",
+    "answers": [
+      { "text": "=", "correct": false },
+      { "text": "==", "correct": false },
+      { "text": "===", "correct": true },
+      { "text": "!=", "correct": false }
+    ]
+  },
+  {
+    "question": "Which HTML tag is used to create a list item?",
+    "answers": [
+      { "text": "<ul>", "correct": false },
+      { "text": "<ol>", "correct": false },
+      { "text": "<li>", "correct": true },
+      { "text": "<list>", "correct": false }
+    ]
+  },
+  {
+    "question": "Which CSS property controls text size?",
+    "answers": [
+      { "text": "font-size", "correct": true },
+      { "text": "text-size", "correct": false },
+      { "text": "size", "correct": false },
+      { "text": "font-style", "correct": false }
+    ]
+  },
+  {
+    "question": "How do you write 'Hello World' in JavaScript console?",
+    "answers": [
+      { "text": "print('Hello World')", "correct": false },
+      { "text": "echo('Hello World')", "correct": false },
+      { "text": "console.log('Hello World')", "correct": true },
+      { "text": "display('Hello World')", "correct": false }
+    ]
+  },
+  {
+    "question": "Which HTML attribute specifies the URL of a link?",
+    "answers": [
+      { "text": "src", "correct": false },
+      { "text": "href", "correct": true },
+      { "text": "link", "correct": false },
+      { "text": "url", "correct": false }
+    ]
+  },
+  {
+    "question": "Which JavaScript function converts a string to an integer?",
+    "answers": [
+      { "text": "parseInt()", "correct": true },
+      { "text": "toInteger()", "correct": false },
+      { "text": "NumberToInt()", "correct": false },
+      { "text": "convertInt()", "correct": false }
+    ]
+  }
+]

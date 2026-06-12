@@ -1,0 +1,42 @@
+[
+    {
+        "name": "Alice",
+        "score": 20
+    },
+    {
+        "name": "Bob",
+        "score": 19
+    },
+    {
+        "name": "Charlie",
+        "score": 18
+    },
+    {
+        "name": "David",
+        "score": 17
+    },
+    {
+        "name": "Emma",
+        "score": 17
+    },
+    {
+        "name": "Sophia",
+        "score": 16
+    },
+    {
+        "name": "James",
+        "score": 15
+    },
+    {
+        "name": "Mia",
+        "score": 14
+    },
+    {
+        "name": "Lucas",
+        "score": 13
+    },
+    {
+        "name": "Olivia",
+        "score": 12
+    }
+]
