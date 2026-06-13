@@ -1,69 +1,76 @@
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
-const timerElement = document.getElementById("timer");
 
-const playerName =
-    localStorage.getItem("username") || "Guest";
-
-let questions = [];
 let currentQuestionIndex = 0;
 let score = 0;
-let timeLeft = 30;
-let timer;
 let quizFinished = false;
 
-/* =========================
-   LOAD QUESTIONS
-========================= */
+/* ======================
+   REGISTER
+====================== */
 
-async function loadQuestions() {
-    try {
-        const response = await fetch("questions.json");
-        questions = await response.json();
+function register(event) {
+    event.preventDefault();
 
-        startQuiz();
-    } catch (error) {
-        console.error(error);
-        questionElement.textContent =
-            "Failed to load questions.";
+    const username =
+        document.getElementById("regUsername").value.trim();
+
+    const password =
+        document.getElementById("regPassword").value.trim();
+
+    if (!username || !password) {
+        alert("Please fill all fields.");
+        return;
+    }
+
+    localStorage.setItem("username", username);
+    localStorage.setItem("password", password);
+
+    alert("Registration Successful!");
+    window.location.href = "login.html";
+}
+
+/* ======================
+   LOGIN
+====================== */
+
+function login(event) {
+    event.preventDefault();
+
+    const username =
+        document.getElementById("loginUsername").value.trim();
+
+    const password =
+        document.getElementById("loginPassword").value.trim();
+
+    const storedUser =
+        localStorage.getItem("username");
+
+    const storedPass =
+        localStorage.getItem("password");
+
+    if (
+        username === storedUser &&
+        password === storedPass
+    ) {
+        alert("Login Successful!");
+        window.location.href = "quiz.html";
+    } else {
+        alert("Invalid Username or Password!");
     }
 }
 
-/* =========================
-   TIMER
-========================= */
-
-function startTimer() {
-    clearInterval(timer);
-
-    timeLeft = 30;
-    timerElement.textContent =
-        `Time Left: ${timeLeft}s`;
-
-    timer = setInterval(() => {
-        timeLeft--;
-
-        timerElement.textContent =
-            `Time Left: ${timeLeft}s`;
-
-        if (timeLeft <= 0) {
-            clearInterval(timer);
-            handleNextButton();
-        }
-    }, 1000);
-}
-
-/* =========================
+/* ======================
    QUIZ
-========================= */
+====================== */
 
 function startQuiz() {
     currentQuestionIndex = 0;
     score = 0;
     quizFinished = false;
 
-    nextButton.textContent = "Next";
+    nextButton.innerHTML = "Next";
 
     showQuestion();
 }
@@ -71,19 +78,17 @@ function startQuiz() {
 function showQuestion() {
     resetState();
 
-    startTimer();
-
     const currentQuestion =
         questions[currentQuestionIndex];
 
-    questionElement.textContent =
+    questionElement.innerHTML =
         `${currentQuestionIndex + 1}. ${currentQuestion.question}`;
 
     currentQuestion.answers.forEach(answer => {
         const button =
             document.createElement("button");
 
-        button.textContent = answer.text;
+        button.innerHTML = answer.text;
         button.classList.add("btn");
 
         if (answer.correct) {
@@ -110,8 +115,6 @@ function resetState() {
 }
 
 function selectAnswer(event) {
-    clearInterval(timer);
-
     const selectedBtn = event.target;
 
     const isCorrect =
@@ -139,11 +142,27 @@ function selectAnswer(event) {
     nextButton.style.display = "block";
 }
 
-/* =========================
-   LEADERBOARD SAVE
-========================= */
+function handleNextButton() {
+    currentQuestionIndex++;
+
+    if (
+        currentQuestionIndex < questions.length
+    ) {
+        showQuestion();
+    } else {
+        showScore();
+    }
+}
+
+/* ======================
+   SAVE SCORE
+====================== */
 
 function saveScore() {
+    const playerName =
+        localStorage.getItem("username") ||
+        "Guest";
+
     let leaderboard =
         JSON.parse(
             localStorage.getItem("leaderboard")
@@ -175,12 +194,11 @@ function saveScore() {
     );
 }
 
-/* =========================
-   SCORE SCREEN
-========================= */
+/* ======================
+   SHOW SCORE
+====================== */
 
 function showScore() {
-    clearInterval(timer);
     resetState();
 
     quizFinished = true;
@@ -189,43 +207,42 @@ function showScore() {
 
     questionElement.innerHTML =
         `
-        Quiz Completed!<br><br>
-        Your Score: ${score} / ${questions.length}
+        <h2>Quiz Complete!</h2>
+        <p>Your Score: ${score} / ${questions.length}</p>
     `;
 
-    nextButton.textContent =
+    nextButton.innerHTML =
         "View Leaderboard";
 
     nextButton.style.display = "block";
 }
 
-/* =========================
-   NEXT BUTTON
-========================= */
+/* ======================
+   BUTTON EVENTS
+====================== */
 
-function handleNextButton() {
-    currentQuestionIndex++;
-
-    if (
-        currentQuestionIndex < questions.length
-    ) {
-        showQuestion();
-    } else {
-        showScore();
-    }
+if (nextButton) {
+    nextButton.addEventListener(
+        "click",
+        () => {
+            if (quizFinished) {
+                window.location.href =
+                    "leaderboard.html";
+            } else {
+                handleNextButton();
+            }
+        }
+    );
 }
 
-nextButton.addEventListener("click", () => {
-    if (quizFinished) {
-        window.location.href =
-            "leaderboard.html";
-    } else {
-        handleNextButton();
-    }
-});
+/* ======================
+   START QUIZ PAGE ONLY
+====================== */
 
-/* =========================
-   START
-========================= */
-
-loadQuestions();
+if (
+    questionElement &&
+    answerButtons &&
+    nextButton
+) {
+    startQuiz();
+}
